@@ -1,29 +1,28 @@
 import React from 'react';
 import { Route, createBrowserRouter , createRoutesFromElements, RouterProvider } from 'react-router-dom'
 import Navbar from './components/navbar';
-import DataList from "./components/stuff";
+import ViewData from "./components/ViewData";
+import AddData from './components/AddData';
+import EditData from './components/EditData';
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path ="/" element={<Root/>}>
-        <Route index element={<DataList/>}/>
-        {/* <Route path="/service" element={<Service/>}/>
-        <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/regis" element={<RegisterPage/>}/>
-        <Route element={<Lost/>} /> */}
+        <Route index element={<ViewData/>}/>
+        <Route path="/add" element={<AddData/>}/>
+        <Route path="/edit/:id" element={<EditData/>}/>
       </Route>
     )
   )
 
-
   return (
       <div className="App">
         <RouterProvider router = {router}/>
-        <div>gay</div>
       </div>
   );
 }
+
 
 const Root = () =>{
   return(<Navbar/>)
